@@ -3,6 +3,8 @@ var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
+let rev = require('gulp-rev');
+let revReplace = require('gulp-rev-replace');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
@@ -33,6 +35,8 @@ gulp.task('useref', function() {
     return gulp.src('app/index.html')
         .pipe(useref())
         .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulpIf('*.css', rev()))
+        .pipe(revReplace())
         .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
         .pipe(gulp.dest('docs'))
 });
