@@ -17,4 +17,4 @@ My CV
 
     $ gulp test
 
-## [DEMO](https://fadziljusri.github.io/cv/)
+## [DEMO](https://fadziljusri.github.io/cv.old/)
